@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+  CS5744 Fall - Project 2 : Testing a Software System
+</title>
+<link rel="icon" href="./images/icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- External Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Inline CSS -->
+<style>
+  body {
+    position: relative;
+    /* required */
+  }
+
+  .list-group {
+    position: sticky;
+    /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */
+    top: 15px;
+    margin-right: 15px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .list-group {
+      top: 80px;
+    }
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .w3-half img {
+    margin-bottom: -6px;
+    margin-top: 16px;
+    opacity: 0.8;
+    cursor: pointer
+  }
+
+  .w3-half img:hover {
+    opacity: 1
+  }
+</style>
+
+
+<!-- Body -->
+
+<body data-spy="scroll" data-offset="15" data-target="#myScrollspy">
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-teal w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;"
+    id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px">Close Menu</a>
+
+    <!-- Sidebar Header -->
+    <div class="w3-container" style="display: flex; align-items:center; margin-bottom: 60px; font-size: 21px;">
+      <p style="margin-left: 10px; margin-top: 15px;">Test Plan Document - Pet Adoption & Medical Record System</p>
+    </div>
+
+    <!-- Sidebar Content -->
+    <div class="w3-bar-block">
+      <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="testscope.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Test Scope</a>
+      <a href="testplan.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Test Plan</a>
+      <a href="validationtests.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Validation Tests</a>
+    </div>
+  </nav>
+
+  <!-- Top menu for small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-teal w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-teal w3-margin-right" onclick="w3_open()">☰</a>
+    <img src="./images/icon.png" style="width: 35px !important; height: 35px !important;" alt="feedback">
+    <span style="margin-left: 10px; margin-top: 15px;">Test Plan Document - Pet Adoption & Medical Record System</span>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><b>Test Plan</b></h1>
+    </div>
+
+    <!-- Containers start below-->
+    <div class="row" style="margin-top:60px">
+      <div class="col-sm-9">
+
+        <div class="w3-container" id="vision">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Vision</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>User Feedback system will provide the platform to enable ecommerce businesses get feedback on the services
+            and products they are offering. It will provide a comprehensive set of tools to help in all phases of a
+            feedback loop, starting from gathering of the feedback, performing analytics on the provided feedback to
+            informing users once the suggestion has been implemented and available for consumption.
+            .</p>
+        </div>
+
+        <div class="w3-container" id="scope" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Scope</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>With User Feedback System, we will provide:
+            <ul style="list-style-type:disc;">
+              <li>A unified platform where all feedback can be collected, aggregated and analyzed</li>
+              <li>A way to embed User Feedback forms into ecommerce web applications, to enable easy solicitation of
+                feedback</li>
+              <li>Capabilities to analyze the feedback to identify most popular suggestions/issues</li>
+              <li>Group similar feedback to aggregate and provide meaningful insights</li>
+              <li>Provide outward mass communication abilities to reach out to Users who have provided feedback</li>
+              <li>Provide following types of feedback
+                <ul>
+                  <li>Net Promoter Score</li>
+                  <li>Customer Satisfaction Score</li>
+                  <li>Customer Experience Score</li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="w3-container" id="majorfeatures" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Major Features</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>
+            <table class="table table-hover table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Major Feature #</th>
+                  <th>Major Feature Description</th>
+                  <th>Business Criticality</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MF.1</td>
+                  <td>Easy to use widget should be available to customers which they can integrate within their web
+                    application to collect feedback from users</td>
+                  <td>Critical</td>
+                </tr>
+                <tr>
+                  <td>MF.2</td>
+                  <td>Each customer should have a unique web portal where they could view and analyze the feedback
+                    provided by the users</td>
+                  <td>Critical</td>
+                </tr>
+                <tr>
+                  <td>MF.3</td>
+                  <td>A reporting system should be made available to the users which can deliver out-of-the-box and
+                    customizable reports on a configurable schedule</td>
+                  <td>Nice to have</td>
+                </tr>
+                <tr>
+                  <td>MF.4</td>
+                  <td>An integration point should be made available to customers which can be used to import the
+                    feedback captured from external systems and export existing feedback</td>
+                  <td>Must have</td>
+                </tr>
+                <tr>
+                  <td>MF.5</td>
+                  <td>The system should be able to aggregate, analyze and produce a report of most rated suggestions
+                    categorically</td>
+                  <td>Must have</td>
+                </tr>
+                <tr>
+                  <td>MF.6</td>
+                  <td>
+                    System should have capabilities to mass communicate with Users via email, text etc.
+                  </td>
+                  <td>Nice to have</td>
+                </tr>
+                <tr>
+                  <td>MF.7</td>
+                  <td>System should discrete roles built in to allow granular levels of security</td>
+                  <td>Must have</td>
+                </tr>
+                <tr>
+                  <td>MF.8</td>
+                  <td>Documentation/User Guide around using the System should be developed. This Documentation should be
+                    comprehensive and easy to understand/implement at the same time</td>
+                  <td>Must have</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+        </div>
+
+        <div class="w3-container" id="notinscope" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Not In Scope</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Major features described above define the scope of the system. The features listed below are not in scope
+            and provides clarification to the scope:
+            <ul style="list-style-type:disc;">
+              <li>This system will not support non-web applications i.e. Desktop, GUI applications, mobile applications
+                etc.</li>
+              <li>This system will not accept or store feedback for anonymous users.</li>
+            </ul>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- DO NOT MODIFY BELOW THIS -->
+
+      <!-- Modal for full size images on click-->
+      <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+          <img id="img01" class="w3-image">
+          <p id="caption"></p>
+        </div>
+      </div>
+
+      <div class="col-sm-3" id="myScrollspy">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action active" href="#vision">Vision</a>
+          <a class="list-group-item list-group-item-action" href="#scope">Scope</a>
+          <a class="list-group-item list-group-item-action" href="#majorfeatures">Major Features</a>
+          <a class="list-group-item list-group-item-action" href="#notinscope">Not In Scope</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:250px;padding-right:58px">
+    <p class="w3-right">CS5744 Fall - Project 1 : Design of a software system by Ravindra Agrawal</p>
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+  </script>
+
+</body>
+
+</html>

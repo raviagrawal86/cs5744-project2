@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+  CS5744 Fall - Project 2 : Testing a Software System
+</title>
+<link rel="icon" href="./images/icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- External Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Inline CSS -->
+<style>
+  body {
+    position: relative;
+    /* required */
+  }
+
+  .list-group {
+    position: sticky;
+    /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */
+    top: 15px;
+    margin-right: 15px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .list-group {
+      top: 80px;
+    }
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .w3-half img {
+    margin-bottom: -6px;
+    margin-top: 16px;
+    opacity: 0.8;
+    cursor: pointer
+  }
+
+  .w3-half img:hover {
+    opacity: 1
+  }
+</style>
+
+
+<!-- Body -->
+
+<body data-spy="scroll" data-offset="15" data-target="#myScrollspy">
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-teal w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;"
+    id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px">Close Menu</a>
+
+    <!-- Sidebar Header -->
+    <div class="w3-container" style="display: flex; align-items:center; margin-bottom: 60px; font-size: 21px;">
+      <p style="margin-left: 10px; margin-top: 15px;">Test Plan Document - Pet Adoption & Medical Record System</p>
+    </div>
+
+    <!-- Sidebar Content -->
+    <div class="w3-bar-block">
+      <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="testscope.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Test Scope</a>
+      <a href="testplan.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Test Plan</a>
+      <a href="validationtests.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Validation Tests</a>
+    </div>
+  </nav>
+
+  <!-- Top menu for small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-teal w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-teal w3-margin-right" onclick="w3_open()">☰</a>
+    <img src="./images/icon.png" style="width: 35px !important; height: 35px !important;" alt="feedback">
+    <span style="margin-left: 10px; margin-top: 15px;">Test Plan Document - Pet Adoption & Medical Record System</span>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><b>Validation Tests</b></h1>
+    </div>
+
+    <!-- Containers start below-->
+    <div class="row" style="margin-top:60px">
+      <div class="col-sm-9">
+
+        <div class="w3-container" id="functionalrequirements">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Functional Requirements</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Following are the functional requirements for the system:</p>
+          <p>
+            <table class="table table-hover table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Major Feature </th>
+                  <th>Functional Requirement</th>
+                  <th>Functional Requirement Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MF.1</td>
+                  <td>FR.1</td>
+                  <td>As a widget, I should be lightweight and provide an SDK for customers to integrate within their
+                    web application</td>
+                </tr>
+                <tr>
+                  <td>MF.1</td>
+                  <td>FR.2</td>
+                  <td>As a widget, I should support following types of feedback:
+                    <ul style="list-style-type:disc;">
+                      <li>Net Promoter Score</li>
+                      <li>Customer Satisfaction Score</li>
+                      <li>Customer Experience Score</li>
+                      <li>Structured Questionnaire</li>
+                      <li>Unstructured/Open Feedback</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MF.1</td>
+                  <td>FR.3</td>
+                  <td>As a widget, I should have multi-lingual support with minimal configuration</td>
+                </tr>
+                <tr>
+                  <td>MF.1</td>
+                  <td>FR.4</td>
+                  <td>As a widget, my styling should be configurable to blend with host applications</td>
+                </tr>
+                <tr>
+                  <td>MF.1</td>
+                  <td>FR.5</td>
+                  <td>As a user, I should be able to provide feedback with minimal distractions and in a reasonable
+                    amount of time</td>
+                </tr>
+                <tr>
+                  <td>MF.2</td>
+                  <td>FR.6</td>
+                  <td>As a Portal, I should provide Single-Sign-On (SSO) functionality</td>
+                </tr>
+                <tr>
+                  <td>MF.2</td>
+                  <td>FR.7</td>
+                  <td>As a Customer, I should be able to view all the widgets after login</td>
+                </tr>
+                <tr>
+                  <td>MF.2</td>
+                  <td>FR.8</td>
+                  <td>As a Customer/Admin, I should be able to add new widgets via a WYSIWYG interface</td>
+                </tr>
+                <tr>
+                  <td>MF.2</td>
+                  <td>FR.9</td>
+                  <td>As a Customer/Admin, I should be able to edit existing widgets and modify all the configurable
+                    aspects</td>
+                </tr>
+                <tr>
+                  <td>MF.2</td>
+                  <td>FR.10</td>
+                  <td>As a Customer/Admin, Ishould have ability to disable and delete existing widgets</td>
+                </tr>
+                <tr>
+                  <td>MF.2 / MF.7</td>
+                  <td>FR.11</td>
+                  <td>As a Customer/Admin, I should be able to Add admins to the portal</td>
+                </tr>
+                <tr>
+                  <td>MF.2 / MF.3</td>
+                  <td>FR.12</td>
+                  <td>As an Admin, I should be able to generate auto configured reports such as Amount of feedback
+                    received per widget, most rated ideas etc. at a configurable schedule</td>
+                </tr>
+                <tr>
+                  <td>MF.2 / MF.3</td>
+                  <td>FR.13</td>
+                  <td>As an Admin, I should be able to create a custom report, extracting specific fields and set it to
+                    generate at a configurable schedule</td>
+                </tr>
+                <tr>
+                  <td>MF.4</td>
+                  <td>FR.14</td>
+                  <td>As a System, I should provide integration points with external system to facilitate the exchange
+                    of data. The integration point should use a widely accepted communication protocol such as HTTP</td>
+                </tr>
+                <tr>
+                  <td>MF.4</td>
+                  <td>FR.15</td>
+                  <td>As an API, I should also allow adding and editing of existing widgets</td>
+                </tr>
+                <tr>
+                  <td>MF.4</td>
+                  <td>FR.16</td>
+                  <td>As an API, I should also allow import and export of existing feedback data</td>
+                </tr>
+                <tr>
+                  <td>MF.4 / MF.7</td>
+                  <td>FR.17</td>
+                  <td>As an API, I should authenticate users and allow changes according to the access level provisioned
+                  </td>
+                </tr>
+                <tr>
+                  <td>MF.4</td>
+                  <td>FR.18</td>
+                  <td>As a Customer/Admin, I should be able to use API to generate an existing report</td>
+                </tr>
+                <tr>
+                  <td>MF.5</td>
+                  <td>FR.19</td>
+                  <td>As an Admin Portal, I should provide functionality to perform multidimensional analysis on the
+                    feedback </td>
+                </tr>
+                <tr>
+                  <td>MF.5 / MF.3</td>
+                  <td>FR.20</td>
+                  <td>As an Admin Portal, I should aggregate the data on a nightly basis and present it in a dashboard
+                    format</td>
+                </tr>
+                <tr>
+                  <td>MF.5</td>
+                  <td>FR.21</td>
+                  <td>As a Dashboard, I should present the following information at a minimum:
+                    <ul style="list-style-type:disc;">
+                      <li>Number of Active Widgets</li>
+                      <li>Number of feedback provided per Widget</li>
+                      <li>Number of distinct active users</li>
+                      <li>Trending Ideas</li>
+                      <li>Overall Net Promoter Score</li>
+                      <li>Overall Customer Satisfaction Score</li>
+                      <li>Overall Customer Experience Score</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MF.6</td>
+                  <td>FR.22</td>
+                  <td>As Customer/Admin, I should be able to communicate via email to all users who voted for a
+                    particular idea/suggestion/feedback. This could include but not limited to sending updates when the
+                    idea has been accepted, in-progress and is available for use</td>
+                </tr>
+                <tr>
+                  <td>MF.6</td>
+                  <td>FR.23</td>
+                  <td>As Customer/Admin, I should be able to communicate via text to all users who voted for a
+                    particular </td>
+                </tr>
+                <tr>
+                  <td>MF.7</td>
+                  <td>FR.24</td>
+                  <td>
+                    As a Portal, I should have these following roles defined to enable granular level of access and
+                    security:
+                    <ul style="list-style-type:disc;">
+                      <li>Super Admin</li>
+                      <li>Admin</li>
+                      <li>User</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MF.8</td>
+                  <td>FR.25</td>
+                  <td>As a Customer, I should have documentation available to me to understand how the system works from
+                    a conceptual point of view</td>
+                </tr>
+                <tr>
+                  <td>MF.8</td>
+                  <td>FR.26</td>
+                  <td>As an Admin, I should have documentation available to me to understand how the Administrative
+                    functions work</td>
+                </tr>
+                <tr>
+                  <td>MF.8</td>
+                  <td>FR.27</td>
+                  <td>As a Developer, I should have documentation available to me to explain how I can use the SDK to
+                    integrate the user feedback tool within my application</td>
+                </tr>
+                <tr>
+                  <td>MF.8</td>
+                  <td>FR.28</td>
+                  <td>As a Developer, I should have documentation available to me to explain how I can use the API’s
+                    available for integration</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+        </div>
+
+        <div class="w3-container" id="non-functionalrequirements" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Non-Functional Requirements</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>These Non-Functional requirements impose constraints under which the system we are developing has to
+            function. Following are the requirements that we are explicitly defining and hold true for each customer
+            instance.</p>
+          <p>
+            <table class="table table-hover table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Non-Functional Requirement</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>NFR.1</td>
+                  <td>
+                    <h3>Performance</h3>
+                    <p>We will measure the performance of our system at component level and measure of performance would
+                      be 95 Percentile Response Time. They apply to each individual user action, i.e. clicking on a
+                      button, page load etc.
+                      <ul style="list-style-type:disc;">
+                        <li>Feedback Widget: 200ms</li>
+                        <li>Admin Portal: 200ms
+                        </li>
+                        <li>API’s: 500ms</li>
+                      </ul>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NFR.2</td>
+                  <td>
+                    <h3>Scalability</h3>
+                    <p>Our architecture and design of the system should allow to support horizontal scaling. Horizontal
+                      scaling will allow the use modern conterization technologies effectively. Each individual
+                      component should be independently scalable, on demand. One important constraint we will define is:
+                      Performance should increase as linear function or near linear function of Scale of deployment.
+                    </p>
+                    <p>
+                      Following are additional scalability requirements defining the minimum criteria:
+                      <ul style="list-style-type:disc;">
+                        <li>System must be able to handle 10% transactional growth annually</li>
+                        <li>Data stores must be able to handle 30% of data volume/transactional growth annually
+                        </li>
+                        <li>API’s: 500ms</li>
+                      </ul>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NFR.3</td>
+                  <td>
+                    <h3>Availability</h3>
+                    <p>We will measure availability as Average Uptime. Average Uptime can be measured as following:
+                    </p>
+                    <p>
+                      <code>Average Availability = Total Uptime in Minutes / Total Uptime in Minutes + Total Downtime in Minutes</code>
+                    </p>
+                    <p>We will commit to a 99.99% availability every month i.e. we cannot be down for more than 432
+                      minutes every month including planned downtime for upgrades and unplanned system outages
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>NFR.4</td>
+                  <td>
+                    <h3>Reliability</h3>
+                    <p>Reliability is the ability of a system to carry out its functions as intended and without errors.
+                    </p>
+                    <p> We will measure reliability as the percentage of successful attempts (operations) compared to
+                      all attempts.
+                      <p>
+                        <code>Reliability = 100% * (All Attempts – All failures) / All Attempts</code>
+                      </p>
+                    </p>
+                    <p>We will commit to 99% reliability i.e. Only one transaction in a hundred can fail
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>NFR.5</td>
+                  <td>
+                    <h3>Security</h3>
+                    <p>These are some basic guidelines that should be serve as umbrella requirements for ensuring
+                      security. However, by no means these are a comprehensive set of requirements and should be
+                      augmented by additional requirements as needed
+                      <ul style="list-style-type:disc;">
+                        <li>All external touchpoints should have robust industry grade authentication built into them
+                        </li>
+                        <li>All communication should use HTTPS and TLS 1.2
+                        </li>
+                        <li>All Sensitive datastores should be encrypted</li>
+                        <li>Incoming feedback should be scanned to ensure PHI/PII is not included</li>
+                        <li>All web applications will use session management to ensure the integrity of a session and
+                          explicitly set expiry</li>
+                      </ul>
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>NFR.6</td>
+                  <td>
+                    <h3>Maintainability</h3>
+                    <p>
+                      <ul style="list-style-type:disc;">
+                        <li>Data stores should have archiving/purging process
+                        </li>
+                        <li>All components should log details of failures to aid troubleshooting
+                        </li>
+                        <li>Log files should be rotated. 15 days worth of logs should be maintained for critical
+                          components and 7 days for non-critical components</li>
+                        <li>All changes performed to Widgets/Portal settings should be auditable and traceable</li>
+                        <li>Production components should have limited access to individuals (minimum necessary) and all
+                          changes should be done via System</li>
+                      </ul>
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>NFR.7</td>
+                  <td>
+                    <h3>Compatibility</h3>
+                    <p>
+                      <ul style="list-style-type:disc;">
+                        <li>All user facing components should be compatible with all modern browsers including but not
+                          limited to Chrome, Firefox, Edge with version support to ensure 90% of users are supported
+                        </li>
+                        <li>All user facing components should have response design to ensure visible aspects are not
+                          compromised when viewed from a mobile browser
+                        </li>
+                        <li>API should use rest architecture to ensure easier utilization and greater compatibility
+                        </li>
+                      </ul>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NFR.8</td>
+                  <td>
+                    <h3>Resilience</h3>
+                    <p>To ensure resilience, we will ensure all components have redundancy and failover mechanism built
+                      into them. This will ensure no component acts as a single point of failure. Following points
+                      should serve as minimum guidelines:
+                      <ul style="list-style-type:disc;">
+                        <li>All datastores should use active replication with two or more nodes in the cluster
+                        </li>
+                        <li>All web based components should be made available via active load balancing and should have
+                          at least three or more nodes serving the requests
+                        </li>
+                        <li>Content Delivery Network (CDN) should also be behind load balancers with at least two active
+                          nodes
+                        </li>
+                        <li>Actives nodes for all components should be split into different geographical locations/data
+                          centers</li>
+                        <li>All middleware components including caches and message queue should have failover nodes as
+                          well</li>
+                      </ul>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- DO NOT MODIFY BELOW THIS -->
+
+      <!-- Modal for full size images on click-->
+      <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+          <img id="img01" class="w3-image">
+          <p id="caption"></p>
+        </div>
+      </div>
+
+      <div class="col-sm-3" id="myScrollspy">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action active" href="#functionalrequirements">Functional
+            Requirements</a>
+          <a class="list-group-item list-group-item-action" href="#non-functionalrequirements">Non-Functional
+            Requirements</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:250px;padding-right:58px">
+    <p class="w3-right">CS5744 Fall - Project 1 : Design of a software system by Ravindra Agrawal</p>
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+  </script>
+
+</body>
+
+</html>
