@@ -114,16 +114,36 @@
     <div class="row" style="margin-top:60px">
       <div class="col-sm-9">
 
-        <div class="w3-container" id="testprocedure" >
+        <div class="w3-container" id="testprocedure">
           <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Test Procedure</b></h1>
           <hr style="width:50px;border:5px solid teal" class="w3-round">
-          <p>Write Something about data access layer</p>
+          <p>Validation testing is performed after development work is completed and we will plan our validating testing
+            efforts to test the final shippable software.
+            During our validation testing, we will test all functional aspects of the system to ensure all components
+            are integrated well with each other and are performing
+            cohesively as a system. We will test certain functionalities which could not have been tested without all
+            components being ready.
+          </p>
+          <p>Additionally, we will also focus on testing certain non-functional requirements such as performance and
+            load bearing characteristics of the system and security aspects. For our validation testing, we will
+            follow these testing strategies:
+            <ul>
+              <li>Functional Testing</li>
+              <li>Performance Testing</li>
+              <li>Load Testing</li>
+            </ul>
+          </p>
         </div>
 
         <div class="w3-container" id="testcases" style="margin-top:75px">
           <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Test Cases</b></h1>
           <hr style="width:50px;border:5px solid teal" class="w3-round">
-          <h3>Test Cases</h3>
+          <br>
+          <h4>Functional Testing</h4>
+          <p>With validation testing, we will test all functional requirements of the system and ensure that all
+            functional requirements have
+            been implemented according to specs.
+          </p>
           <table class="table table-hover table-bordered">
             <thead class="thead-dark">
               <tr>
@@ -134,10 +154,135 @@
             </thead>
             <tbody>
               <tr>
-                <td>TC.1</td>
-                <td>Easy to use widget should be available to customers which they can integrate within their web
-                  application to collect feedback from users</td>
-                <td>Critical</td>
+                <td>VTC.1</td>
+                <td>
+                  <p><b>Account Creation</b></p>
+                  <p>Following Account Creation should be performed:
+                    <ul>
+                      <li>Pet Owner Account</li>
+                      <li>Business Owner Account</li>
+                      <li>Business Employee Account</li>
+                    </ul>
+                  </p>
+                </td>
+                <td>Testers should be able to create these accounts with valid credentials. Duplicate accounts should
+                  not be allowed.</td>
+              </tr>
+              <tr>
+                <td>VTC.2</td>
+                <td>
+                  <p><b>Business Account Management</b></p>
+                  <p>Businesses should be able to perform following account management activities:
+                    <ul>
+                      <li>View details of employee accounts</li>
+                      <li>Modify details of employee accounts</li>
+                      <li>Create new pet records</li>
+                      <li>Modify existing pet records</li>
+                    </ul>
+                  </p>
+                </td>
+                <td>Testers should be able to successfully perform these activities with valid business accounts.</td>
+              </tr>
+              <tr>
+                <td>VTC.3</td>
+                <td>
+                  <p><b>User Account Management</b></p>
+                  <p>Users should be able to perform following account management activities:
+                    <ul>
+                      <li>View details of owned pets</li>
+                      <li>Modify details of owned pets</li>
+                    </ul>
+                  </p>
+                </td>
+                <td>Testers should be able to successfully perform these activities with valid user accounts.</td>
+              </tr>
+              <tr>
+                <td>VTC.4</td>
+                <td>
+                  <p><b>Roles</b></p>
+                  <p>Following security aspects should be tested w.r.t. roles
+                    <ul>
+                      <li>Business Users should not be able to create a new business account</li>
+                      <li>Pet owners should not be able to create a business account</li>
+                      <li></li>
+                    </ul>
+                  </p>
+                </td>
+                <td>Testers should NOT be able to perform these activities without system admin accounts.</td>
+              </tr>
+              <tr>
+                <td>VTC.5</td>
+                <td>
+                  <p><b>Pet Account Maintenance</b></p>
+                  <p>Pet owners & Business users, both should be able to perform these activities
+                    <ul>
+                      <li>Upload documentation and tie it to the pet account</li>
+                      <li>Add/ modify events related to a pet account</li>
+                      <li>Transfer ownership to another account</li>
+                    </ul>
+                  </p>
+                </td>
+                <td>Testers should be able to successfully perform these activities with either personal or business
+                  accounts.</td>
+              </tr>
+              <tr>
+                <td>VTC.6</td>
+                <td>
+                  <p><b>Security</b></p>
+                  <p>All users must enter valid credentials to access the web application.
+                  </p>
+                </td>
+                <td>Testers should NOT be able to login without valid accounts.</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <h4>Performance Testing</h4>
+          <p>With performance testing, we will try to ensure that the system is performing well under the stipulated
+            values for response time and page load.
+          </p>
+          <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Test Case #</th>
+                <th>Test Case Description</th>
+                <th>Expected Results</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>VTC.7</td>
+                <td>
+                  <p><b>Performance Testing</b></p>
+                  <p>It is performed to ensure response time and latency are within design specs (2 seconds).</p>
+                </td>
+                <td>Response time and latency should be under the stipulated numbers per design document.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h4>Load Testing</h4>
+          <p>With load testing, we will try to ensure that the the system performs as expected under load,
+            and fails gracefully under stress.
+          </p>
+          <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Test Case #</th>
+                <th>Test Case Description</th>
+                <th>Expected Results</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>VTC.8</td>
+                <td>
+                  <p><b>Load Testing</b></p>
+                  <p>It is performed to ensure system performs as expected under load,
+                    and fails gracefully under stress..</p>
+                </td>
+                <td>System should behave as expected.</td>
               </tr>
             </tbody>
           </table>
@@ -151,38 +296,134 @@
             <table class="table table-hover table-bordered">
               <thead class="thead-dark">
                 <tr>
-                  <th>Major Feature </th>
-                  <th>Functional Requirement</th>
-                  <th>Functional Requirement Description</th>
+                  <th>Req#</th>
+                  <th>Requirement Description</th>
+                  <th>Test Case</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>MF.1</td>
-                  <td>FR.1</td>
-                  <td>As a widget, I should be lightweight and provide an SDK for customers to integrate within their
-                    web application</td>
+                  <td>FR-1</td>
+                  <td>Pet owners (Personal Users) may self-register for an account.</td>
+                  <td>VTC.1</td>
                 </tr>
                 <tr>
-                  <td>MF.1</td>
-                  <td>FR.2</td>
-                  <td>As a widget, I should support following types of feedback:
-                    <ul style="list-style-type:disc;">
-                      <li>Net Promoter Score</li>
-                      <li>Customer Satisfaction Score</li>
-                      <li>Customer Experience Score</li>
-                      <li>Structured Questionnaire</li>
-                      <li>Unstructured/Open Feedback</li>
-                    </ul>
+                  <td>FR-2</td>
+                  <td>Veterinarian office and adoption clinic owners/administrators (Business Users) may request
+                    business
+                    accounts.</td>
+                  <td>VTC.1</td>
+                </tr>
+                <tr>
+                  <td>FR-3</td>
+                  <td>Business users may create additional accounts for employees.</td>
+                  <td>VTC.1</td>
+                </tr>
+                <tr>
+                  <td>FR-4</td>
+                  <td>Business users may manage roles/permissions for employee accounts.</td>
+                  <td>VTC.2</td>
+                </tr>
+                <tr>
+                  <td>FR-5</td>
+                  <td>All users may login to the system using a unique username and password.</td>
+                  <td>VTC.6</td>
+                </tr>
+                <tr>
+                  <td>FR-6</td>
+                  <td>Business users and employees may create or modify medical records for pets in the system.</td>
+                  <td>VTC.5</td>
+                </tr>
+                <tr>
+                  <td>FR-7</td>
+                  <td>Personal users may upload supporting documentation for their pets (e.g. scanned or electronic
+                    copies
+                    of medical services).</td>
+                  <td>VTC.5</td>
+                </tr>
+                <tr>
+                  <td>FR-8</td>
+                  <td>Personal users may update/modify non-medical information of pets.</td>
+                  <td>VTC.5</td>
+                </tr>
+                <tr>
+                  <td>FR-9</td>
+                  <td>Any user may pass ownership of an owned pet to any other user.</td>
+                  <td>VTC.5</td>
+                </tr>
+                <tr>
+                  <td>FR-10</td>
+                  <td>Personal users may opt in/out sharing contact info to other owners if pet is passed.</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>FR-11</td>
+                  <td>System should notify pet owners of missing or incomplete medical or personal (e.g. vaccines not
+                    up-to-date).</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>NFR-1</td>
+                  <td>The application interface should meet or exceed level AA conformance of the Web Content
+                    Accessibility Guidelines (WCAG) 2.1.</td>
+                  <td>FTC.19</td>
+                </tr>
+                <tr>
+                  <td>NFR-2</td>
+                  <td>The full application stack should be cloud compatible.</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>NFR-3</td>
+                  <td>The full application stack should autoscale to meet user demand.</td>
+                  <td>VTC.8</td>
                   </td>
                 </tr>
                 <tr>
-                  <td>MF.1</td>
-                  <td>FR.3</td>
-                  <td>As a widget, I should have multi-lingual support with minimal configuration</td>
+                  <td>NFR-4</td>
+                  <td>The application should be available 99.99% of the time (“four nines”).</td>
+                  <td>VTC.7, VTC.8</td>
+                </tr>
+                <tr>
+                  <td>NFR-5</td>
+                  <td>All web pages should load in under two seconds.</td>
+                  <td>VTC.7</td>
+                </tr>
+                <tr>
+                  <td>NFR-6</td>
+                  <td>All web traffic should be encrypted using Transport Layer Security (TLS).</td>
+                  <td>FTC.13</td>
+                </tr>
+                <tr>
+                  <td>NFR-7</td>
+                  <td>Appropriate measures should be taken to ensure data servers are secured.</td>
+                  <td>FTC.4</td>
+                </tr>
+                <tr>
+                  <td>NFR-8</td>
+                  <td>Data backups should be created daily (minimum).</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>NFR-9/td>
+                  <td>Data backups should be securely stored separately NRom data servers.</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>NFR-10</td>
+                  <td>A private REST API should be available for third-party, desktop, or mobile application
+                    integration.
+                  </td>
+                  <td>FTC.6 through FTC.13</td>
+                </tr>
+                <tr>
+                  <td>NFR-11</td>
+                  <td>Access to all data should take a least privilege approach.</td>
+                  <td>FTC.4, VTC.6, FTC.10 through FTC.13</td>
                 </tr>
               </tbody>
             </table>
+
           </p>
         </div>
       </div>

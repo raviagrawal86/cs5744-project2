@@ -158,8 +158,286 @@
           <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Data Access Layer</b></h1>
           <hr style="width:50px;border:5px solid teal" class="w3-round">
           <br>
+          <h2>Test Procedure</h2>
+          <p>
+            Integration testing data access layer is very important, partly due to the fact that most of the unit tests
+            do not cover
+            database as it is considered an external system and with unit tests we want them to be as much independent
+            as possible so they
+            can be executed while external components may or may not have been built yet. This is an important
+            consideration since it
+            creates the possibility of discovering significant defects which may not have been uncovered yet due to lack
+            of unit testing.
+            Additionally, since data access layer is the bottom most layer, other layers are inherently dependent on
+            proper functioning of
+            data access layer. Any lingering defects could become very hard to investigate post integration with high
+            layers.
+          </p>
+
+          <p>
+            We have two different components here that need to be tested as part of the integration testing, with
+            database being
+            the more complex component and hence most of our effort will be spend testing database during this phase.
+            The core
+            theme of all our test cases will be around these four facts:
+            <ul>
+              <li><b>Data Mapping: </b>We need to ensure the fields within the data access layer are mapped consistently
+                with the corresponding fields in the database.</li>
+              <li><b>Data Integrity: </b>Data should be consistent with every database transaction.</li>
+              <li><b>ACID Properties: </b>It stands for Atomicity, Consistency, Isolation, and Durability.
+                Every database transaction should confirm to these four properties.</li>
+            </ul>
+          </p>
+          <br>
+          <h2>Test Cases</h2>
+          <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Test Case #</th>
+                <th>Test Case Description</th>
+                <th>Expected Results</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>FTC.1</td>
+                <td>
+                  <p><b>Schema Testing</b></p>
+                  <p>The goal of schema testing is to ensure that the mapping between the data access layer and database
+                    are same.
+                    Thus, we may also refer to schema testing as mapping testing.</p>
+                  <p>Queries can be written to extract the schema and ensure it has been defined correctly
+                    and according to specification. Additionally, tools such as Ant may be used for automated testingand
+                    validation.
+                  </p>
+                </td>
+                <td>Schema should match with the definition as provided in the Entity Relationship Diagram and Data
+                  Model(s)</td>
+              </tr>
+              <tr>
+                <td>FTC.2</td>
+                <td>
+                  <p><b>Stored Procedure Testing</b></p>
+                  <p>Stored procedures are the user defined functions inside the database which usually execute
+                    a series of DML commands within the context of a transaction.
+                  </p>
+                  <p>Stored procedures can be tested using white box testing where every single stored procedures
+                    is executed using a set of input values and results are validated against the expected values.
+                    Edge case testing is crucial.
+                  </p>
+                </td>
+                <td>Output values should match the expected values for each stored procedure.</td>
+              </tr>
+
+              <tr>
+                <td>FTC.3</td>
+                <td>
+                  <p><b>Database Definition Testing</b></p>
+                  <p>Database Definition testing is to ensure that all tables and fields inside the database are defined
+                    using appropriate data types with correct lengths, value validations are properly defined, foreign
+                    key constraints are correctly defined, keys and indexes are defined correctly as well.
+                  </p>
+                  <p>Queries can be written against the database to extract the schema objects which can be
+                    compared to the specification against the Entity Relationship Diagram.
+                  </p>
+                </td>
+                <td>Output values should match the definitions in Entity Relationship Diagram.</td>
+              </tr>
+
+              <tr>
+                <td>FTC.4</td>
+                <td>
+                  <p><b>Security Testing</b></p>
+                  <p>Security Testing ensures that database is only accessible by authorized personnel's and level
+                    of access is appropriate/minimum required. We also ensure the database roles are correctly defined
+                    and users are allocated authorized roles only.
+                  </p>
+                  <p>Queries can be written against the database to extract the roles and users which can be
+                    compared another source for validation.
+                  </p>
+                </td>
+                <td>Roles, users and accesses defined in the database should match specification.</td>
+              </tr>
+
+              <tr>
+                <td>FTC.5</td>
+                <td>
+                  <p><b>Load Testing</b></p>
+                  <p>Database is a central component in our application has the potential to become a single point of
+                    failure. This places a greater need to ensure that our database is adequately provisioned hardware
+                    wise and is able to handle the agreed load during peak times. Load testing can ensure
+                  </p>
+                  <p>Test automation is key for load testing. Simulating database transactions against the database to
+                    mimic
+                    actual load from users can be performed.
+                  </p>
+                </td>
+                <td>Ensuring that no transaction should fail and monitoring key host metrics such CPU, memory, page file
+                  usage
+                  and other database metrics should provide insights into Database health under stress.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="w3-container" id="apilayer" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>API Layer</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <br>
+          <h2>Test Procedure</h2>
+          <p>Our next build focusses on API layer. This layer houses all the business logic and thus is critical
+            in validation of the functional requirements. In fact, most of the functional requirements are also
+            partially testable programmatically via the APIs. Every test case executed against the api should
+            be verified at minimum against the specification for following:
+            <ul>
+              <li>Correct HTTP Status Code</li>
+              <li>Correct HTTP Response Headers</li>
+              <li>Correct HTTP Response Payload</li>
+            </ul>
+          </p>
+          <br>
+          <p>
+            During this build, we will test focus on following testing methodologies as part of our
+            API testing strategy:
+            <ul>
+              <li><b>Functional Testing: </b>To ensure all functionality has been implemented as intended</li>
+              <li><b>Security Testing: </b>To ensure authentication and authorization has been properly implemented</li>
+              <li><b>Performance Testing: </b>To ensure we meet the performance SLAs as specified</li>
+              <li><b>Load Testing: </b>To ensure we continue to function within SLAs when under load</li>
+            </ul>
+          </p>
+          <br>
+          <h2>Test Cases</h2>
+          <p>We have split the test cases for API testing according to the goal of a particular strategy.
+            This helps us to organize our test cases and execute them together.
+          </p>
+          <br>
+          <h4>Functional Testing</h4>
+          <p>Functional Testing usually involves ensuring the
+            service contracts are correctly defined and apis are functioning acorrding to specification. We will
+            execute all api operations against a set of test scenarios, which are outlined below:
+            <table class="table table-hover table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Test Case #</th>
+                  <th>Test Case Description</th>
+                  <th>Expected Results</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>FTC.6</td>
+                  <td>
+                    <p><b>Positive Testing</b></p>
+                    <p>It is performed to ensure operations return expected output with a given input.</p>
+                  </td>
+                  <td>The API output should be per documentation.</td>
+                </tr>
+                <tr>
+                  <td>FTC.7</td>
+                  <td>
+                    <p><b>Edge Case Testing</b></p>
+                    <p>It is performed to ensure operations return expected output with an edge case input. Both
+                      under the edge and over the edge cases should be tested.</p>
+                  </td>
+                  <td>The API output should be per documentation.</td>
+                </tr>
+                <tr>
+                  <td>FTC.8</td>
+                  <td>
+                    <p><b>Negative Testing - Valid Input</b></p>
+                    <p>It is performed to ensure operations gracefully returns failure with a valid input.</p>
+                  </td>
+                  <td>The API output should be per documentation.</td>
+                </tr>
+                <tr>
+                  <td>FTC.9</td>
+                  <td>
+                    <p><b>Negative Testing - Invalid Input</b></p>
+                    <p>It is performed to ensure operations gracefully returns failure with a invalid input.</p>
+                  </td>
+                  <td>The API output should be per documentation.</td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <h4>Security Testing</h4>
+            <p>With security testing, we will try to ensure that the api's are secure and role based with
+              authentication and authorization implemented as expected. No user should be able to consume
+              apis without access or proper level of authorization.
+            </p>
+            <table class="table table-hover table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Test Case #</th>
+                  <th>Test Case Description</th>
+                  <th>Expected Results</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>FTC.10</td>
+                  <td>
+                    <p><b>Security Principles</b></p>
+                    <p>Ensure that the API is designed according to correct security principles.
+                      We perform both positive and negative testing to ensure persons with margin-right
+                      credentials and authentication mechanism are able to consue APIs while others are not:
+                    </p>
+                  </td>
+                  <td>
+                    <b>Positive</b> - Ensure API responds to correct authorization according to specification.
+                    <b>Negative</b> - Ensure API refuses all unauthorized calls.
+                  </td>
+                </tr>
+                <tr>
+                  <td>FTC.11</td>
+                  <td>
+                    <p><b>Role Permissions</b></p>
+                    <p>It is performed to ensure that specific endpoints are exposed to user based on role.</p>
+                  </td>
+                  <td>API should refuse calls to endpoints which are not permitted for user’s role.</td>
+                </tr>
+                <tr>
+                  <td>FTC.12</td>
+                  <td>
+                    <p><b>Access Control Policies</b></p>
+                    <p>It is performed to ensure correct access control policies such as rate limiting and throttling
+                      are implemented correctly.</p>
+                  </td>
+                  <td>Access Control Policies should be implemented per spec.</td>
+                </tr>
+                <tr>
+                  <td>FTC.13</td>
+                  <td>
+                    <p><b>Protocol</b></p>
+                    <p>This is done to ensure communication protocols are implemented correctly</p>
+                  </td>
+                  <td>Ensure that all communication utilizes TLS 1.2 and HTTPS according to specs.</td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+            <br>
+        </div>
+
+        <div class="w3-container" id="presentationlayer" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Presentation Layer</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <br>
           <h3>Test Procedure</h3>
-          <p>Write Something about data access layer</p>
+          <p>Presentation layer enables users to interact with the system and for this reason we will
+            focus our testing efforts to ensure that the accessibility, usability aspects of the system
+            are build to the specification and requirements. On a high level, we will focus on following
+            aspects:
+            <ul>
+              <li>Visual Design</li>
+              <li>Functionality</li>
+              <li>Performance</li>
+              <li>Usability</li>
+              <li>Security</li>
+            </ul>
+          </p>
           <br>
           <h3>Test Cases</h3>
           <table class="table table-hover table-bordered">
@@ -172,68 +450,39 @@
             </thead>
             <tbody>
               <tr>
-                <td>TC.1</td>
-                <td>Easy to use widget should be available to customers which they can integrate within their web
-                  application to collect feedback from users</td>
-                <td>Critical</td>
+                <td>FTC.14</td>
+                <td>Required Fields</td>
+                <td>All required fields should be well indicated.</td>
+              </tr>
+              <tr>
+                <td>FTC.15</td>
+                <td>Validation</td>
+                <td>All input fields should be validation against the data entered
+                  and should display a meaningful message when incorrectly entered.</td>
+              </tr>
+              <tr>
+                <td>FTC.16</td>
+                <td>Consistency</td>
+                <td>The screen look, feel and design should match the other screens in your application.</td>
+              </tr>
+              <tr>
+                <td>FTC.17</td>
+                <td>Confirmations</td>
+                <td>All changes and deletes should prompt for user confirmation.</td>
+              </tr>
+              <tr>
+                <td>FTC.18</td>
+                <td>Progress Bars</td>
+                <td>All long running transactions should have progress bars.</td>
+              </tr>
+              <tr>
+                <td>FTC.19</td>
+                <td>W3C-Web content accessibility guidelines</td>
+                <td>W3 web content accessibility guidelines are available at https://www.w3.org/WAI/standards-guidelines/wcag/glance/</td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        <div class="w3-container" id="apilayer" style="margin-top:75px">
-            <h1 class="w3-xxxlarge w3-text-blue-grey"><b>API Layer</b></h1>
-            <hr style="width:50px;border:5px solid teal" class="w3-round">
-            <br>
-            <h3>Test Procedure</h3>
-            <p>Write Something about data access layer</p>
-            <br>
-            <h3>Test Cases</h3>
-            <table class="table table-hover table-bordered">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Test Case #</th>
-                  <th>Test Case Description</th>
-                  <th>Expected Results</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>TC.1</td>
-                  <td>Easy to use widget should be available to customers which they can integrate within their web
-                    application to collect feedback from users</td>
-                  <td>Critical</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="w3-container" id="presentationlayer" style="margin-top:75px">
-              <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Presentation Layer</b></h1>
-              <hr style="width:50px;border:5px solid teal" class="w3-round">
-              <br>
-              <h3>Test Procedure</h3>
-              <p>Write Something about data access layer</p>
-              <br>
-              <h3>Test Cases</h3>
-              <table class="table table-hover table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Test Case #</th>
-                    <th>Test Case Description</th>
-                    <th>Expected Results</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>TC.1</td>
-                    <td>Easy to use widget should be available to customers which they can integrate within their web
-                      application to collect feedback from users</td>
-                    <td>Critical</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
 
       </div>
 
