@@ -2,7 +2,7 @@
 <html lang="en">
 
 <title>
-  CS5744 Fall - Project 2 : Testing a Software System
+  CS5744 Fall - Project 2: Testing a Software System
 </title>
 <link rel="icon" href="./images/icon.png">
 <meta charset="UTF-8">
@@ -66,7 +66,6 @@
   }
 </style>
 
-
 <!-- Body -->
 
 <body data-spy="scroll" data-offset="15" data-target="#myScrollspy">
@@ -85,8 +84,10 @@
     <div class="w3-bar-block">
       <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href="testscope.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Test Scope</a>
-      <a href="testplan.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Test Plan</a>
-      <a href="validationtests.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Validation Tests</a>
+      <a href="integrationtests.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Integration
+        Tests</a>
+      <a href="validationtests.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Validation
+        Tests</a>
     </div>
   </nav>
 
@@ -101,23 +102,110 @@
   <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
     id="myOverlay"></div>
 
-
   <div class="w3-main" style="margin-left:340px;margin-right:40px">
     <!-- Header -->
     <div class="w3-container" style="margin-top:80px" id="showcase">
-      <h1 class="w3-jumbo"><b>User Feedback System</b></h1>
-      <p>
-        User Feedback system will provide a platform to enable ecommerce businesses get feedback on the services and
-        products they are offering. It will provide a comprehensive set of tools to help in all phases of a feedback
-        loop, starting from gathering of the feedback, performing analytics on the provided feedback to informing users
-        once the suggestion has been implemented and available for consumption.
-      </p>
+      <h1 class="w3-jumbo"><b>General Information</b></h1>
     </div>
 
+    <div class="row" style="margin-top:60px">
+      <div class="col-sm-9">
+
+        <div class="w3-container" id="purpose">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Purpose</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>
+            Purpose of this test plan is to establish a baseline for the testing efforts to be carried for this system.
+            This plan will form the basis of minumum testing to be performed as well it will provide guidance on overall
+            testing strategy including types of testing to be performed, various phases of testing, exit criteria etc.
+          </p>
+          <p>
+            This document should continue to evolve as system requirements and architecture/design continues to change,
+            however
+            it should always serve as the source of truth for all testing related activities.
+          </p>
+        </div>
+
+        <div class="w3-container" id="scope" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Scope</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>
+            The scope of this test plan is limited to Integration Testing and Acceptance/Validation Testing. This
+            document will proide the guidance to testers to familiarize with the system as well outline the overall
+            testing strategy.
+          </p>
+        </div>
+
+        <div class="w3-container" id="version" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Version</b></h1>
+          <p>All changes should be follow an increment in the version.</p>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Version Number </th>
+                <th>Date</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.0</td>
+                <td>12/5/2019</td>
+                <td>Initial Release of the Test Plan</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="w3-container" id="systemoverview" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>System Overview</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>
+            Pet adoption & medical record system is a web application to consolidate medical history of a pet. It acts a
+            central repository for all the records of a pet and also acts as a system to provide alerts for an
+            upcoming/needed medication or procedure.
+          </p>
+        </div>
+
+        <div class="w3-container" id="sysarch" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>System Architecture</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>The system architecure is divided into three layers, which each layer performing a specific function. In
+            this document we will plan to create a test plan which is adequate for performing Integration Testing and
+            Validation Testing. The criteria for the test plan will totally be based off the high-level system design
+            document.
+          </p>
+          <img src="./images/sysarch.png" style="width:100%" onclick="onClick(this)" alt="System Architecture">
+        </div>
+      </div>
+
+      <!-- DO NOT MODIFY BELOW THIS -->
+
+      <!-- Modal for full size images on click-->
+      <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+          <img id="img01" class="w3-image">
+          <p id="caption"></p>
+        </div>
+      </div>
+
+      <div class="col-sm-3" id="myScrollspy">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action" active href="#purpose">Purpose</a>
+          <a class="list-group-item list-group-item-action" href="#scope">Scope</a>
+          <a class="list-group-item list-group-item-action" href="#version">Version</a>
+          <a class="list-group-item list-group-item-action" href="#systemoverview">System Overview</a>
+          <a class="list-group-item list-group-item-action" href="#sysarch">System Architecture</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer-->
   <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:250px;padding-right:58px">
-    <p class="w3-right">CS5744 Fall - Project 2 : Testing a Software System</p>
+    <p class="w3-right">CS5744 Fall - Project 2: Testing a Software System</p>
   </div>
 
   <script>

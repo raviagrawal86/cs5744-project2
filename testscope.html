@@ -2,7 +2,7 @@
 <html lang="en">
 
 <title>
-  CS5744 Fall - Project 2 : Testing a Software System
+  CS5744 Fall - Project 2: Testing a Software System
 </title>
 <link rel="icon" href="./images/icon.png">
 <meta charset="UTF-8">
@@ -66,7 +66,6 @@
   }
 </style>
 
-
 <!-- Body -->
 
 <body data-spy="scroll" data-offset="15" data-target="#myScrollspy">
@@ -85,8 +84,10 @@
     <div class="w3-bar-block">
       <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href="testscope.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Test Scope</a>
-      <a href="testplan.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Test Plan</a>
-      <a href="validationtests.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Validation Tests</a>
+      <a href="integrationtests.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Integration
+        Tests</a>
+      <a href="validationtests.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Validation
+        Tests</a>
     </div>
   </nav>
 
@@ -101,7 +102,6 @@
   <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
     id="myOverlay"></div>
 
-
   <div class="w3-main" style="margin-left:340px;margin-right:40px">
     <!-- Header -->
     <div class="w3-container" style="margin-top:80px" id="showcase">
@@ -112,62 +112,231 @@
     <div class="row" style="margin-top:60px">
       <div class="col-sm-9">
 
-        <div class="w3-container" id="introduction">
-          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Introduction</b></h1>
-          <hr style="width:50px;border:5px solid teal" class="w3-round">
-          <p>Customer feedback is an important aspect of any business. It can provide critical information about the
-            health
-            of a business, provide future product roadmap as well provide ideas for future innovations/sustenance of a
-            business. In today’s world where brand image in social media can make or break a business, customer
-            feedback
-            can
-            no longer be overlooked.</p>
-        </div>
-
-        <div class="w3-container" id="userfeedback" style="margin-top:75px">
-          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>User Feedback</b></h1>
-          <hr style="width:50px;border:5px solid teal" class="w3-round">
-          <p>Feedback in general is considered as a reaction to a product or service, which in turn can be used as a
-            basis for improvement. User feedback refers to the process of soliciting customer’s opinion about a
-            certain product or a service. It attempts to gather the information if the customers were satisfied or
-            dissatisfied with the overall experience. This information can be collected, aggregated, analyzed and
-            turned into meaningful action items that a business can perform to improve the customer experience. At the
-            core, user feedback is meant for improving future customer experience and eventually, to reduce churn.
-          </p>
-        </div>
-
-        <div class="w3-container" id="importanceofuserfeedback" style="margin-top:75px">
-          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Importance of User Feedback</b></h1>
+        <div class="w3-container" id="testitems">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Test Items</b></h1>
           <hr style="width:50px;border:5px solid teal" class="w3-round">
           <p>
-            <ul style="list-style-type:disc;">
+            <br>
+            <h3>Following system components and their related features are considered to be in scope for testing.</h3>
+            <ul>
               <li>
-                <b>Improve Customer Experience:</b> Monitoring customer experience at every touchpoint is important.
-                User
-                Feedback can improve this monitoring by directly asking customers about their experience.
+                <p><b>Web Application</b> is the user facing component and will need to be test for GUI testing
+                  and will include various aspects of GUI such as usability, functionality, accessibility etc.</p>
               </li>
               <li>
-                <b>Improve Product & Services:</b> Business can improve upon existing products and services by
-                incorporating
-                suggestions received from customers.
+                <p><b>Rest API</b> allows customers and 3rd party applications to interact programatically
+                  with the system. API's should be tested functionally as well for security aspects. </p>
               </li>
               <li>
-                <b>Customer Satisfaction:</b> Customer sentiment can quickly be gathered by asking for their overall
-                satisfaction. Customer satisfaction is closely tied to loyalty and plays a big role in the overall
-                success of a business.
+                <p><b>Database</b> is an underlying component not exposed to user. Testing focus for database should
+                  be ensure it performs well under load testing. Additionally, security testing should be performed
+                  to ensure data cannot leak and sql injection are not possible.</p>
               </li>
               <li>
-                <b>Social Marketing:</b> Feedback from other peer users is considered to be the most reliable source of
-                information by customers. Opinions provided by others customers can be made available by the business to
-                establish trust factor with a new user.
-              </li>
-              <li>
-                <b>Growth:</b> In general User Feedback is critical to make an informed decision on the future of a
-                business.
-                Customer feedback is one of the most tangible sources of information to make business decisions.
+                <p><b>File Storage</b> should use testing strategy similar to database.</p>
               </li>
             </ul>
           </p>
+          <br>
+          <p>
+            <h3>Following system components are considered out of scope for testing.</h3>
+            <ul>
+              <li>
+                <p><b>Desktop Application</b> is out of scope being a future enhancement.</p>
+              </li>
+              <li>
+                <p><b>Mobile API</b> is out of scope being a future enhancement.</p>
+              </li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="w3-container" id="fr" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Functional Requirements</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Req#</th>
+                <th>Requirement Description</th>
+                <th>In Scope?</th>
+                <th>Testing Goal/Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>FR-1</td>
+                <td>Pet owners (Personal Users) may self-register for an account.</td>
+                <td>Yes</td>
+                <td>User Accounts should be successfully created from the web application</td>
+              </tr>
+              <tr>
+                <td>FR-2</td>
+                <td>Veterinarian office and adoption clinic owners/administrators (Business Users) may request business
+                  accounts.</td>
+                <td>Yes</td>
+                <td>A business account can be created using Super Admin credentials from the web application.</td>
+              </tr>
+              <tr>
+                <td>FR-3</td>
+                <td>Business users may create additional accounts for employees.</td>
+                <td>Yes</td>
+                <td>From web application using business user credentials, an employee account can be created.</td>
+              </tr>
+              <tr>
+                <td>FR-4</td>
+                <td>Business users may manage roles/permissions for employee accounts.</td>
+                <td>Yes</td>
+                <td>From web application using business user credentials, access for an employee account can be
+                  modified.</td>
+              </tr>
+              <tr>
+                <td>FR-5</td>
+                <td>All users may login to the system using a unique username and password.</td>
+                <td>Yes</td>
+                <td>Access to web application may only be granted via proper authentication.</td>
+              </tr>
+              <tr>
+                <td>FR-6</td>
+                <td>Business users and employees may create or modify medical records for pets in the system.</td>
+                <td>Yes</td>
+                <td>User with Business and user credetials are able to define new pet records.</td>
+              </tr>
+              <tr>
+                <td>FR-7</td>
+                <td>Personal users may upload supporting documentation for their pets (e.g. scanned or electronic copies
+                  of medical services).</td>
+                <td>Yes</td>
+                <td>System must be able to store electronic documentation and tie it to a pet record. These documents
+                  must also be retrievable.</td>
+              </tr>
+              <tr>
+                <td>FR-8</td>
+                <td>Personal users may update/modify non-medical information of pets.</td>
+                <td>Yes</td>
+                <td>Using web application and valid user credentials, pet record(s) can be modified.</td>
+              </tr>
+              <tr>
+                <td>FR-9</td>
+                <td>Any user may pass ownership of an owned pet to any other user.</td>
+                <td>Yes</td>
+                <td>Testing to ensure owner of a pet can be changed from one user account to another.</td>
+              </tr>
+              <tr>
+                <td>FR-10</td>
+                <td>Personal users may opt in/out sharing contact info to other owners if pet is passed.</td>
+                <td>No</td>
+                <td>Privacy settings are not in scope for testing.</td>
+              </tr>
+              <tr>
+                <td>FR-11</td>
+                <td>System should notify pet owners of missing or incomplete medical or personal (e.g. vaccines not
+                  up-to-date).</td>
+                <td>No</td>
+                <td>External notifications will not be in scope for testing.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="w3-container" id="nfr" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Non-Functional Requirements</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Req#</th>
+                <th>Requirement Description</th>
+                <th>In Scope?</th>
+                <th>Testing Goal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NFR-1</td>
+                <td>The application interface should meet or exceed level AA conformance of the Web Content
+                  Accessibility Guidelines (WCAG) 2.1.</td>
+                <td>Yes</td>
+                <td>Testing for Accessibility features should be done using an agreed upon 3rd party testing tool such
+                  as DynoMapper or A11Y etc.</td>
+              </tr>
+              <tr>
+                <td>NFR-2</td>
+                <td>The full application stack should be cloud compatible.</td>
+                <td>No</td>
+                <td>This non-functional requirement is a design guideline and is not in scope for testing.</td>
+              </tr>
+              <tr>
+                <td>NFR-3</td>
+                <td>The full application stack should autoscale to meet user demand.</td>
+                <td>Yes</td>
+                <td>Load Testing should be performed on the application to ensure no failure/unexpected outcomes are
+                  observed.
+                </td>
+              </tr>
+              <tr>
+                <td>NFR-4</td>
+                <td>The application should be available 99.99% of the time (“four nines”).</td>
+                <td>Yes</td>
+                <td>Load Testing should be performed on the application to ensure no failure/unexpected outcomes are
+                  observed. An agreed upon 3rd party application performance monitoring tool such as Dynatrace,
+                  AppDynamics
+                  should be used to gather application availability metrics.</td>
+              </tr>
+              <tr>
+                <td>NFR-5</td>
+                <td>All web pages should load in under two seconds.</td>
+                <td>Yes</td>
+                <td>Load Testing should be performed on the application to ensure no failure/unexpected outcomes are
+                  observed. An agreed upon 3rd party application performance monitoring tool such as Dynatrace,
+                  AppDynamics
+                  should be used to monitor page load times.</td>
+              </tr>
+              <tr>
+                <td>NFR-6</td>
+                <td>All web traffic should be encrypted using Transport Layer Security (TLS).</td>
+                <td>Yes</td>
+                <td>Vulnerability Scanning & Penetration testing should be performed to ensure all inbound and outbound
+                  communications are secured.</td>
+              </tr>
+              <tr>
+                <td>NFR-7</td>
+                <td>Appropriate measures should be taken to ensure data servers are secured.</td>
+                <td>Yes</td>
+                <td>Penetration testing should be performed to ensure no unauthorized connection to database can be
+                  made.</td>
+              </tr>
+              <tr>
+                <td>NFR-8</td>
+                <td>Data backups should be created daily (minimum).</td>
+                <td>No</td>
+                <td>This is an operational aspect and will be out of scope for testing.</td>
+              </tr>
+              <tr>
+                <td>NFR-9/td>
+                <td>Data backups should be securely stored separately NRom data servers.</td>
+                <td>No</td>
+                <td>This is an operational aspect and will be out of scope for testing.</td>
+              </tr>
+              <tr>
+                <td>NFR-10</td>
+                <td>A private REST API should be available for third-party, desktop, or mobile application integration.
+                </td>
+                <td>Yes</td>
+                <td>Rest API's should be tested functionally to ensure all operations are performing as expected.
+                  Additionally, Vulnerability testing and Penetration testing should also be performed to ensure
+                  API connections are secured.
+                </td>
+              </tr>
+              <tr>
+                <td>NFR-11</td>
+                <td>Access to all data should take a least privilege approach.</td>
+                <td>Yes</td>
+                <td>All roles should be tested against activities requiring elevated roles to ensure
+                  role authorization has been implemented correctly.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
       </div>
@@ -185,10 +354,9 @@
 
       <div class="col-sm-3" id="myScrollspy">
         <div class="list-group">
-          <a class="list-group-item list-group-item-action active" href="#introduction">Introduction</a>
-          <a class="list-group-item list-group-item-action" href="#userfeedback">User Feedback</a>
-          <a class="list-group-item list-group-item-action" href="#importanceofuserfeedback">Importance of User
-            Feedback</a>
+          <a class="list-group-item list-group-item-action active" href="#testitems">Test Items</a>
+          <a class="list-group-item list-group-item-action" href="#fr">Functional Requirements</a>
+          <a class="list-group-item list-group-item-action" href="#nfr">Non-Functional Requirements</a>
         </div>
       </div>
     </div>
@@ -196,7 +364,7 @@
 
   <!-- Footer-->
   <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:250px;padding-right:58px">
-    <p class="w3-right">CS5744 Fall - Project 1 : Design of a software system by Ravindra Agrawal</p>
+    <p class="w3-right">CS5744 Fall - Project 1: Design of a software system by Ravindra Agrawal</p>
   </div>
 
   <script>

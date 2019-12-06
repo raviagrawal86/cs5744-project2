@@ -107,22 +107,60 @@
   <div class="w3-main" style="margin-left:340px;margin-right:40px">
     <!-- Header -->
     <div class="w3-container" style="margin-top:80px" id="showcase">
-      <h1 class="w3-jumbo"><b>Validation Tests</b></h1>
+      <h1 class="w3-jumbo"><b>Integration Tests</b></h1>
     </div>
 
     <!-- Containers start below-->
     <div class="row" style="margin-top:60px">
       <div class="col-sm-9">
 
-        <div class="w3-container" id="testprocedure" >
-          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Test Procedure</b></h1>
+        <div class="w3-container" id="buildphases">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Build Phases</b></h1>
           <hr style="width:50px;border:5px solid teal" class="w3-round">
-          <p>Write Something about data access layer</p>
+          <p>This system utilizes a three layered version of the N-Tier architecture. Here, lower layers are providing
+            the functionality to support layers above them.
+            This architecture creates a dependency amongst the components where the lower layered components need to be
+            built before the
+            ones in higher layers. Given these conditions, we will divide the system build into three distinct phases,
+            each corresponding
+            to a layer according to the system architecture.
+          </p>
+          <p>Dividing the testing process into different phases will help with the overall process and allow it to build
+            and mature along with the system.
+            Additionally, it will allow for automation opportunities which can lead to continuous integration, where all
+            changes are integrated immediately
+            using automated pipeline and is built, packaged and tested. This ensures integration issues are caught and
+            resolved early in the development process.
+          </p>
+          <p>Following this approach, we will start our test process from the lowest most layer which is Database or
+            data access layer, moving to application programming
+            interface layer and finally proceeding to presentation or graphical user interface layer. Since we are
+            following the path of dependency between these layers,
+            we will be able to solidify the foundations for higher layers by testing the lower layers first. These will
+            be the three build phases we will test:
+          </p>
+          <ul>
+            <li><b>Data Access Layer:</b> Within Data access layer, we will focus on testing data access objects,
+              ensuring they are functioning as intended.
+              We would also focus on testing security & performance aspects of the database.</li>
+            <li><b>API Layer:</b> Testing efforts will be focussed on security testing as well as functional testing to
+              ensure
+              APIs are functioning per specification and are secure. Since APIs will be exposed to external world via a
+              programming interface,
+              more focus on security is needed.</li>
+            <li><b>Presentation Layer:</b> Within Presentation layer, we will focus on functional and accessibility
+              aspects of the GUI. We would also be
+              testing the performance of the system to ensure it complies with the non-functional requirements.</li>
+          </ul>
         </div>
 
-        <div class="w3-container" id="testcases" style="margin-top:75px">
-          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Test Cases</b></h1>
+        <div class="w3-container" id="dataaccesslayer" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Data Access Layer</b></h1>
           <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <br>
+          <h3>Test Procedure</h3>
+          <p>Write Something about data access layer</p>
+          <br>
           <h3>Test Cases</h3>
           <table class="table table-hover table-bordered">
             <thead class="thead-dark">
@@ -143,48 +181,60 @@
           </table>
         </div>
 
-        <div class="w3-container" id="traceabilitymatrix" style="margin-top:75px">
-          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Traceability Matrix</b></h1>
-          <hr style="width:50px;border:5px solid teal" class="w3-round">
-          <p>Following are the functional requirements for the system:</p>
-          <p>
+        <div class="w3-container" id="apilayer" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-blue-grey"><b>API Layer</b></h1>
+            <hr style="width:50px;border:5px solid teal" class="w3-round">
+            <br>
+            <h3>Test Procedure</h3>
+            <p>Write Something about data access layer</p>
+            <br>
+            <h3>Test Cases</h3>
             <table class="table table-hover table-bordered">
               <thead class="thead-dark">
                 <tr>
-                  <th>Major Feature </th>
-                  <th>Functional Requirement</th>
-                  <th>Functional Requirement Description</th>
+                  <th>Test Case #</th>
+                  <th>Test Case Description</th>
+                  <th>Expected Results</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>MF.1</td>
-                  <td>FR.1</td>
-                  <td>As a widget, I should be lightweight and provide an SDK for customers to integrate within their
-                    web application</td>
-                </tr>
-                <tr>
-                  <td>MF.1</td>
-                  <td>FR.2</td>
-                  <td>As a widget, I should support following types of feedback:
-                    <ul style="list-style-type:disc;">
-                      <li>Net Promoter Score</li>
-                      <li>Customer Satisfaction Score</li>
-                      <li>Customer Experience Score</li>
-                      <li>Structured Questionnaire</li>
-                      <li>Unstructured/Open Feedback</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MF.1</td>
-                  <td>FR.3</td>
-                  <td>As a widget, I should have multi-lingual support with minimal configuration</td>
+                  <td>TC.1</td>
+                  <td>Easy to use widget should be available to customers which they can integrate within their web
+                    application to collect feedback from users</td>
+                  <td>Critical</td>
                 </tr>
               </tbody>
             </table>
-          </p>
-        </div>
+          </div>
+
+          <div class="w3-container" id="presentationlayer" style="margin-top:75px">
+              <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Presentation Layer</b></h1>
+              <hr style="width:50px;border:5px solid teal" class="w3-round">
+              <br>
+              <h3>Test Procedure</h3>
+              <p>Write Something about data access layer</p>
+              <br>
+              <h3>Test Cases</h3>
+              <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Test Case #</th>
+                    <th>Test Case Description</th>
+                    <th>Expected Results</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>TC.1</td>
+                    <td>Easy to use widget should be available to customers which they can integrate within their web
+                      application to collect feedback from users</td>
+                    <td>Critical</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
       </div>
 
       <!-- DO NOT MODIFY BELOW THIS -->
@@ -200,9 +250,10 @@
 
       <div class="col-sm-3" id="myScrollspy">
         <div class="list-group">
-          <a class="list-group-item list-group-item-action active" href="#testprocedure">Test Procedure</a>
-          <a class="list-group-item list-group-item-action" href="#testcases">Test Cases</a>
-          <a class="list-group-item list-group-item-action" href="#traceabilitymatrix">Traceability Matrix</a>
+          <a class="list-group-item list-group-item-action active" href="#buildphases">Build Phases</a>
+          <a class="list-group-item list-group-item-action" href="#dataaccesslayer">Data Access Layer</a>
+          <a class="list-group-item list-group-item-action" href="#apilayer">API Layer</a>
+          <a class="list-group-item list-group-item-action" href="#presentationlayer">Presentation Layer</a>
         </div>
       </div>
     </div>
